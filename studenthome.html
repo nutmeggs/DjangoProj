@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asset Management</title>
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+
+<h2>Asset Management</h2>
+
+<table id="assetTable">
+  <tr>
+    <th>Student Name</th>
+    <th>Asset</th>
+    <th>Hire Date</th>
+    <th>Action</th>
+  </tr>
+  <!-- Assets will be added here! -->
+</table>
+
+<br>
+
+
+<button onclick="addRow()">Add Asset</button>
+
+<script>
+function addRow() {
+    var table = document.getElementById("assetTable");
+    var row = table.insertRow(-1); // Insert row at the end of the table
+
+    var cell1 = row.insertCell(0); // Student name
+    var cell2 = row.insertCell(1); // What the asset is
+    var cell3 = row.insertCell(2); // The date they hired
+    var cell4 = row.insertCell(3); // Remove an asset
+
+    cell1.innerHTML = '<input type="text" name="student_name">';
+    cell2.innerHTML = '<input type="text" name="asset">';
+    cell3.innerHTML = '<input type="date" name="hire_date">';
+    cell4.innerHTML = '<button onclick="removeRow(this)">Remove</button>';
+}
+
+function removeRow(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
+</script>
+
+</body>
+</html>
