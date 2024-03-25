@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Asset Management</title>
+<title>Student Home</title>
 <style>
     table {
         width: 100%;
@@ -21,20 +21,23 @@
 </head>
 <body>
 
-<h2>Asset Management</h2>
+<h1>Student Home</h1>
+<h3>Student Assets</h3>
+
 
 <table id="assetTable">
   <tr>
     <th>Student Name</th>
-    <th>Asset</th>
-    <th>Hire Date</th>
-    <th>Action</th>
+    <th>Student ID</th>
+    <th>Asset Type</th>
+    <th>Quantity</th>
+    <th>Date Hired</th>
+    <th>Edit</th>
   </tr>
-  <!-- Assets will be added here! -->
+  <!-- Existing rows will be added here -->
 </table>
 
 <br>
-
 
 <button onclick="addRow()">Add Asset</button>
 
@@ -43,15 +46,19 @@ function addRow() {
     var table = document.getElementById("assetTable");
     var row = table.insertRow(-1); // Insert row at the end of the table
 
-    var cell1 = row.insertCell(0); // Student name
-    var cell2 = row.insertCell(1); // What the asset is
-    var cell3 = row.insertCell(2); // The date they hired
-    var cell4 = row.insertCell(3); // Remove an asset
+    var cell1 = row.insertCell(0); // Student Name
+    var cell2 = row.insertCell(1); // Student ID
+    var cell3 = row.insertCell(2); // Asset Type
+    var cell4 = row.insertCell(3); // Quantity
+    var cell5 = row.insertCell(4); // Date Hired
+    var cell6 = row.insertCell(5); // Remove Button
 
     cell1.innerHTML = '<input type="text" name="student_name">';
-    cell2.innerHTML = '<input type="text" name="asset">';
-    cell3.innerHTML = '<input type="date" name="hire_date">';
-    cell4.innerHTML = '<button onclick="removeRow(this)">Remove</button>';
+    cell2.innerHTML = '<input type="text" name="student_id">';
+    cell3.innerHTML = '<input type="text" name="asset_type">';
+    cell4.innerHTML = '<input type="number" name="quantity">';
+    cell5.innerHTML = '<input type="date" name="date_hired">';
+    cell6.innerHTML = '<button onclick="removeRow(this)">Remove</button>';
 }
 
 function removeRow(button) {
