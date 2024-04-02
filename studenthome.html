@@ -52,6 +52,8 @@ function addRow() {
     var cell4 = row.insertCell(3); 
     var cell5 = row.insertCell(4); 
     var cell6 = row.insertCell(5); 
+    //can use it to get the internal HTML content of any HTML element as an HTML string
+    //use it to set or change elements' innerHTML content
     cell1.innerHTML = '<input type="text" name="student_name">';
     cell2.innerHTML = '<input type="text" name="student_id">';
     cell3.innerHTML = '<input type="text" name="asset_type">';
@@ -75,6 +77,8 @@ function saveData() {
     for (var i = 1; i < rows.length; i++) {
         var cells = rows[i].cells;
         var rowData = {
+            //a method used for searching and returning the very first element within the document that matches the given selector
+            //to select elements by type, class, id, attribute, pseudo-class, and pseudo-element selectors
             student_name: cells[0].querySelector("input").value,
             student_id: cells[1].querySelector("input").value,
             asset_type: cells[2].querySelector("input").value,
@@ -92,6 +96,7 @@ function loadData() {
     if (tableData) {
         tableData = JSON.parse(tableData);
         var table = document.getElementById("assetTable");
+        //the "i" in "int i" is a variable named location in memory where a value can be stored and retrieved
         for (var i = 0; i < tableData.length; i++) {
             var row = table.insertRow(-1);
             var cell1 = row.insertCell(0);
